@@ -1,0 +1,10 @@
+https://tupy.herokuapp.com/
+
+inteiro V[*] <- [1,12,13,23,25,34,56,78,98];
+inteiro k <-  25;
+inteiro i <- 1;
+enquanto (V[i] < k):
+    i <- i+1
+    se V[i] == k:
+        retornar i
+retornar nulo
