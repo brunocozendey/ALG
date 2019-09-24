@@ -1,0 +1,40 @@
+tipo Nó:
+    inteiro chave
+    Nó próx
+    
+    Nó(inteiro c):
+        chave <- c
+
+tipo Lista:
+    Nó início
+    
+visual V <- "" ~~
+----------------
+
+Lista L <- Lista()
+
+TrocaPos(Lista L):
+    Nó p <- L.início
+    L.início <- p.próx
+    Nó pant <- p
+    
+    enquanto (p!=nulo):
+        p <- pant.próx
+        
+        se (p.próx != nulo):
+            pant.próx <- p.próx
+            p.próx <- pant
+        senão: 
+            p.próx <- pant
+            p <- nulo
+            pant.próx <- p
+    V <- lista_encadeada(L.início, "chave", "próx") ~~
+
+Insere(Lista L, inteiro c):
+    Nó novo <- Nó(c)
+    L.início,novo.próx <- novo, L.início
+    V <- lista_encadeada(L.início, "chave", "próx") ~~
+
+Insere(L, 2);
+Insere(L, 1);
+TrocaPos(L)
