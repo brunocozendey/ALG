@@ -1,0 +1,14 @@
+inteiro V[*] <- [1,7,3,6,9]
+inteiro n <- comprimento(V)
+inteiro i,j,menor,k,aux
+
+para i <- 0..n-1:
+    menor <- i
+    para k <- i+1..n:
+        escrever(k)
+        se V[k] < V[menor]:
+            menor <- k  
+    aux <- V[menor]
+    V[menor] <- V[i]
+    V[i] <- aux
+    
