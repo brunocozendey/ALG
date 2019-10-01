@@ -22,62 +22,7 @@ Insere(Lista L, inteiro chave):
     L.início, novo.próx <- novo, L.início
     V <- lista_encadeada(L.início, "chave", "próx") ~~
 
-InsereEm(Lista L, inteiro chave, inteiro pos):
-    se pos > 0:
-        Nó novo <- Nó(chave)
-        Nó p <- L.início
-        inteiro i
-        para i <- 1..pos:
-            p <- p.próx
-        p.próx, novo.próx <- novo, p.próx
-    senão:
-        Insere(L, chave)
-    V <- lista_encadeada(L.início, "chave", "próx") ~~
-
-InsereOrdenado(Lista L, inteiro chave):
-    Nó p <- L.início
-    se p = nulo ou chave < p.chave:
-        Insere(L, chave)
-    senão:
-        enquanto(p.próx != nulo e p.próx.chave < chave):
-            p <- p.próx
-        Nó novo <- Nó(chave)
-        p.próx, novo.próx <- novo, p.próx
-    V <- lista_encadeada(L.início, "chave", "próx") ~~
-
-RemovePosÍmpar (Lista L):
-    Nó pant <- L.início
-    Nó p <- L.início
-    inteiro conta <- 1
-    enquanto(p != nulo):
-        se ((conta mod 2) == 0):
-            pant <- p
-            p <- p.próx
-        senão:
-            se (L.início == p):
-                L.início <- p.próx
-            pant.próx <- p.próx
-            p <- nulo
-            p <- pant.próx
-        conta <- conta + 1;
-        
-    V <- lista_encadeada(L.início, "chave", "próx") ~~
-
-TrocaPos (Lista L):
-    
-    Nó aux
-    Nó pant <- L.início
-    L.início <- pant.próx
-    Nó p <- L.início 
-    enquanto(p != nulo):
-        pant.próx <- p.próx
-        p.próx <- pant
-        aux <-p 
-        p <- pant.próx
-        pant <- aux
-    V <- lista_encadeada(L.início, "chave", "próx") ~~
-
-TrocaPos2(Lista L):
+TrocaPos(Lista L):
     inteiro conta <- 2
     Nó pant <- L.início
     Nó p <- pant.próx
@@ -95,10 +40,7 @@ TrocaPos2(Lista L):
             pant <- p
             p <- p.próx
             conta <- conta + 1
-    V <- lista_encadeada(L.início, "chave", "próx") ~~
-
-        
-            
+    V <- lista_encadeada(L.início, "chave", "próx") ~~  
 
 Lista X <- Lista()
 Insere(X, 6)
@@ -107,5 +49,4 @@ Insere(X, 4)
 Insere(X, 3)
 Insere(X, 2)
 Insere(X, 1)
-TrocaPos2(X)
-
+TrocaPos(X)
