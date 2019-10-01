@@ -1,0 +1,54 @@
+#-------------------------------------------------------------------------------
+# Dada uma lista encadeada, sem nó cabeça, fazer um algoritmo para transformar 
+# essa lista em duas outras. A primeira deve conter os nós de posição par,
+# a outra os demais. - EC08-4
+#-------------------------------------------------------------------------------
+
+tipo Nó:
+    inteiro chave
+    Nó próx
+
+    Nó(inteiro c):
+        chave <- c
+
+tipo Lista:
+    Nó início
+
+visual V <- "" ~~
+visual P <- "" ~~
+visual I <- "" ~~
+
+----------------
+
+Lista X <- Lista()
+
+Insere(Lista L, inteiro chave):
+    Nó novo <- Nó(chave)
+    L.início, novo.próx <- novo, L.início
+    V <- lista_encadeada(L.início, "chave", "próx") ~~
+
+SeparaParesImpares(Lista L):
+    Lista Pares <- Lista()
+    Lista Impares <- Lista()
+    
+    inteiro conta <- 1
+    Nó p <- L.início
+    enquanto (p!= nulo):
+        se (conta mod 2 == 0): # é par
+            Insere(Pares,p.chave)            
+        senão:
+            Insere(Impares,p.chave)
+        p <- p.próx
+        conta <- conta + 1
+    P <- lista_encadeada(Pares.início, "chave", "próx") ~~
+    I <- lista_encadeada(Impares.início, "chave", "próx") ~~
+    V <- lista_encadeada(L.início, "chave", "próx") ~~  
+
+Lista X <- Lista()
+Insere(X, 6)
+Insere(X, 5)
+Insere(X, 4)
+Insere(X, 3)
+Insere(X, 2)
+Insere(X, 1)
+SeparaParesImpares(X)
