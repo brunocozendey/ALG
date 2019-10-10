@@ -1,0 +1,55 @@
+#-------------------------------------------------------------------------
+# Inverte as posições pares e ímpares nas listas, exercicio para casa EC08
+#-------------------------------------------------------------------------
+
+tipo Nó:
+    inteiro chave
+    Nó próx
+
+    Nó(inteiro c):
+        chave <- c
+
+tipo Lista:
+    Nó início
+
+visual V <- "" ~~
+----------------
+
+Lista X <- Lista()
+
+Insere(Lista L, inteiro chave):
+    Nó novo <- Nó(chave)
+    L.início, novo.próx <- novo, L.início
+    V <- lista_encadeada(L.início, "chave", "próx") ~~
+
+TrocaPos(Lista L):
+    inteiro conta <- 2
+    Nó pant <- L.início
+    Nó p <- pant.próx
+    L.início <- p
+    enquanto (p!= nulo):
+        #conta <- conta + 1
+        se (conta mod 2 == 0): # é par
+            pant.próx <- p.próx
+            p.próx <- pant
+            p <- pant.próx
+            conta <- conta + 1
+            
+        senão:
+            se (p.próx != nulo):
+                pant.próx <- p.próx
+                pant <- p
+                p <- p.próx
+                conta <- conta + 1
+            senão: p<- nulo
+    V <- lista_encadeada(L.início, "chave", "próx") ~~  
+
+Lista X <- Lista()
+Insere(X, 6)
+Insere(X, 5)
+Insere(X, 4)
+Insere(X, 3)
+Insere(X, 2)
+Insere(X, 1)
+TrocaPos(X)
+

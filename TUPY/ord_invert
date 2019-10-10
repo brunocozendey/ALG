@@ -1,0 +1,15 @@
+#-------------------------------------------------------------------------------
+# Ordenar lista com itens totalmente invertidos.
+#-------------------------------------------------------------------------------
+
+inteiro VI[*] <- [6,5,4,3,2,1]
+inteiro aux <- 0
+inteiro n <- comprimento(VI)
+inteiro i <- 0
+para i <- 0..arredondar(n/2):
+    aux <- VI[i]
+    VI[i] <- VI[n-i-1]
+    VI[n-i-1] <- aux
+
+visual V <- "" ~~
+
